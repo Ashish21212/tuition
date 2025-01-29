@@ -1,15 +1,27 @@
 const express = require('express');
 const mongoose  = require('mongoose');
-// const dotenv = require('dotenv');
+const bodyParser = require('body-parser');
+
+const classRouter = require('./routes/class')
+
+require('dotenv').config();
 const app = express();
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.use('/api',classRouter);
 
 const PORT = process.env.PORT || 3000;
 
-mongoose.connect('mongodb+srv://acpaashish44:A3J9qNIUwSawitkG@tuition.hwtxz.mongodb.net/test', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   
 
+})
+.then(()=>{
+console.log('Database connected')
 })
 
 
