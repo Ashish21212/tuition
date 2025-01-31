@@ -7,7 +7,7 @@ exports.get_all_class = ((req,res,next) => {
   .then((docs)=>{
    res.status(201).json({
     message:"From database",
-    daat:docs
+    data:docs
    })
   })
   .catch((err)=>{
