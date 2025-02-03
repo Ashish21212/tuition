@@ -35,7 +35,7 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("Database and Server connected");
+    console.log("Database connected");
   });
 
 app.listen(PORT, () => {
